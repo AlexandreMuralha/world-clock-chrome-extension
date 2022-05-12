@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,700&display=swap');
+
+:root {
+  --background-color: #DCD7CC;
+  --text-color:  black;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  box-sizing: border-box;
+  text-rendering: optimizeSpeed;
+  font-family: 'Roboto', sans-serif;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  /* Avoid text overflows */
+  overflow-wrap: break-word;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+a{
+  text-decoration: none;
+  opacity: 0.9;
+  color: var(--text-color);
+}
+
+a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 0.1fr;
+  grid-template-rows: 0.5fr, 1fr, 0.3fr 0.3fr;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: auto;
+  min-width: 350px;
+  text-align: center;
+  padding: 5px;
+}
+
+.div-clock{
+  margin: 0.75rem;
+  align-self: center;
+  justify-self: center;
+
+}
+
+input, select {
+  font-size: 0.75rem;
+  margin: 0.3rem;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  
+}
+
+select {
+  width: 80px;
+}
+
+button {
+  background-color: transparent;
+  border: transparent;
+  cursor: pointer;
+  
+  opacity: 0.3;
+  color: var(--text-color);
+  font-family: inherit;
+  font-family: inherit;
+  font-weight: 700;
+  
+  border: 1px solid var(--text-color);
+  font-size: 0.8rem;
+}
+
+button:hover {
+ opacity: 0.8;
+}
+
+#div-options-button-1{
+  align-self: start;
+  justify-self: end;
+  opacity: 0.3;
+}
+#div-options-button-1:hover{
+  align-self: start;
+  justify-self: end;
+  opacity: 0.8;
+}
+
+#options-button{
+  grid-column: 4/5;
+  grid-row: 1/2;
+
+  padding:0;
+  font-size: 1.5rem;
+  border: none;
+}
+
+#div-options-4{
+  grid-column: 1/4;
+  grid-row: 3;
+  align-self: center;
+  justify-self: center;
+  font-family: inherit;
+  font-size: 0.75rem;
+  margin: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+#div-info {
+  grid-column: 1/5;
+  grid-row: 4;
+  align-self: center;
+  justify-self: end;
+  font-family: inherit;
+  font-size: 0.6rem;
+  margin: 0.4rem;
+  margin-bottom: 0.2rem;
+}
+
+

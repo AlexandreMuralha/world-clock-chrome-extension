@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "World Clock",
+  "description": "World Clock Chrome Extension",
+  "version": "0.2",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+   "default_popup": "index.html",
+   "default_icon": "icon192.png"
+  }
+}
