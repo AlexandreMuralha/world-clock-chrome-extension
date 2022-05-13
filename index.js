@@ -1,3 +1,4 @@
+
 //  Init Current Clocks and Labels Values Vars
 let currentTimeZone1;
 let currentTimeZone2;
@@ -30,6 +31,159 @@ let isDark = false; // dark or light mode
 
 let fontStyle = "Roboto"; // font style
 
+//Creates HTML Option Values for the 3 time zones
+function createHtmlTimeZoneOptions() {
+
+//Stores the values used in creatHtmlTimeZoneOptions()
+const htmlTimeZonesValues =  '<option value="Asia/Tokyo">Tokyo</option>' +  
+        '<option value="Asia/Hong_Kong">Hong Kong</option>  '+
+        '<option value="Asia/Shanghai">Shanghai</option> ' +
+        '<option value="Asia/Kolkata">New Delhi</option>'  +
+        '<option value="Europe/London">London</option>'+
+        '<option value="Europe/Paris">Paris</option>'+
+        '<option value="Europe/Berlin">Berlin</option>'+
+        '<option value="Europe/Moscow">Moscow</option>'+
+        '<option value="America/Argentina/Buenos_Aires">Buenos Aires</option>'+
+        '<option value="America/Sao_Paulo">São Paulo</option>'+
+        '<option value="America/Mexico_City">Mexico City</option>'+
+        '<option value="America/New_York">New York</option>'+
+        '<option value="America/Los_Angeles">Los Angeles</option>'+
+        '<option value="UTC">UTC +0</option> ' +
+        '<option value="" disabled>----AFRICA----</option>'+
+        '<option value="Africa/Algiers">Africa/Abidjan</option>'+
+        '<option value="Africa/Algiers">Africa/Algiers</option>'+ 
+        '<option value="Africa/Bissau">	Africa/Bissau</option>'+
+        '<option value="Africa/Cairo">Africa/Cairo</option>' +
+        '<option value="Africa/Casablanca">Africa/Casablanca</option>'+
+        '<option value="Atlantic/Cape_Verde">Atlantic/Cape_Verde</option>'+
+        '<option value="Africa/Ceuta">Africa/Ceuta</option>'+
+        '<option value="Africa/Johannesburg">Africa/Johannesburg</option>'+
+        '<option value="Africa/Lagos">Africa/Lagos</option>'+
+        '<option value="Africa/Maputo">Africa/Maputo</option>'+
+        '<option value="Africa/Nairobi">Africa/Nairobi</option>'+
+        '<option value="Africa/Sao_Tome">Africa/Sao_Tomei</option>'+
+        '<option value="Africa/Tripoli">Africa/Tripoli</option>'+
+        '<option value="Africa/Tunis">Africa/Tunis</option>'+
+        '<option value="Indian/Mauritius">Africa/Mauricius</option>'+
+        '<option value="Africa/Windhoek">Africa/Windhoek</option>'+
+        '<option value="" disabled>----ASIA----</option>'+
+        '  <option value="Asia/Almaty">Asia/Almaty</option>'+
+        '<option value="Asia/Amman">Asia/Amman</option>'+
+        '<option value="Asia/Anadyr">Asia/Anadyr</option>'+
+        ' <option value="Asia/Baghdad">Asia/Baghdad</option>'+
+        '<option value="Asia/Bahrain">Asia/Bahrain</option>'+
+        '<option value="Asia/Baku">Asia/Baku</option>'+
+        '<option value="Asia/Bangkok">Asia/Bangkok</option>'+
+        '<option value="Asia/Beirut">Asia/Beirut</option>'+
+        '<option value="Asia/Brunei">Asia/Brunei</option>'+
+        '<option value="Asia/Calcutta">Asia/Calcutta</option>'+
+        ' <option value="Asia/Chita">Asia/Chita</option>'+
+        '<option value="Asia/Chungking">Asia/Chungking</option>'+
+        '<option value="Asia/Choibalsan">Asia/Choibalsan</option>'+
+        '<option value="Asia/Colombo">Asia/Colombo</option>'+
+       ' <option value="Asia/Damascus">Damascus</option>'+
+       '<option value="" disabled>----SOUTH AMERICA----</option>'+
+        '<option value="Brazil/Acre">Acre</option>'+
+    '    <option value="America/Argentina/Buenos_Aires">Buenos Aires</option>'+
+        '<option value="America/Bahia">Bahia</option>'+
+        '<option value="America/Belem">Belém</option>'+
+        '<option value="America/Boa_Vista">Boa Vista</option>'+
+       ' <option value="America/Bogota">Bogota</option>'+
+        '<option value="America/Campo_Grande">Campo Grande</option>'+
+        '<option value="America/Cancun">Cancún</option>'+
+        '<option value="America/Bahia">Caracas</option>'+
+        '<option value="America/Cayenne">Cayenne</option>'+
+        '<option value="America/Fortaleza">Fortaleza</option>'+
+        '<option value="America/Guatemala">Guatemala</option>'+
+        '<option value="America/Lima">Lima</option>'+
+        '<option value="America/La_Paz">La Paz</option>'+
+        '<option value="America/Manaus">Manaus</option>'+
+        '<option value="America/Montevideo">Montevideo</option>'+
+        '<option value="America/Noronha">Noronha</option>'+
+        '<option value="America/Recife">Recife</option>'+
+        '<option value="America/Rio_Branco">Rio Branco</option>'+
+        '<option value="America/Santiago">Santiago</option>'+
+        '<option value="America/Sao_Paulo">São Paulo</option>'+
+        '<option value="" disabled>----NORTH/CENTRAL AMERICA----</option>'+
+        '<option value="America/Adak">Adak</option>'+
+        '<option value="America/Anchorage">Anchorage</option>'+
+        '<option value="America/Barbados">Barbados</option>'+
+        '<option value="America/Belize">Belize</option>'+
+        '<option value="America/Chicago">Chicago</option>'+
+        '<option value="America/Chihuahua">Chihuahua</option>'+
+       ' <option value="America/Costa_Rica">Costa Rica</option>'+
+        '<option value="America/Detroit">Detroit</option>'+
+        '<option value="America/Denver">Denver</option>'+
+        '<option value="America/Havana">Havana</option>'+
+        '<option value="America/Jamaica">Jamaica</option>'+
+        '<option value="America/Mexico_City">Mexico City</option>'+
+        '<option value="America/Metlakatla">Metlakatla</option>'+
+        '<option value="America/Los_Angeles">Los Angeles</option>'+
+        '<option value="America/New_York">New York</option>'+
+        '<option value="America/Nome">Nome</option>'+
+        '<option value="America/Panama">Panama</option>'+
+        '<option value="America/Phoenix">Phoenix</option>'+
+        '<option value="America/Port-au-Prince">Port-au-Prince</option>'+
+        '<option value="America/Puerto_Rico">Puerto Rico</option>'+
+        '<option value="America/Sitka">Sitka</option>'+
+        '<option value="America/Tijuana">Tijuana</option>'+
+        '<option value="America/Toronto">Toronto</option>'+
+        '<option value="America/Vancouver">Vancouver</option>'+
+        '<option value="America/Yakutat">Yakutat</option>'+
+        '<option value="America/Whitehorse">Whitehorse</option>'+
+       ' <option value="America/Winnipeg">Winnipeg</option>'+
+       '<option value="" disabled>----EUROPE----</option>'+
+        '<option value="Europe/Amsterdam">Amsterdam</option>'+
+        '<option value="Europe/Andorra">Andorra</option>'+
+        '<option value="Europe/Athens">Athens</option>'+
+        '<option value="Atlantic/Azores">Azores</option>'+
+        '<option value="Europe/Belfast">Belfast</option>'+
+        '<option value="Europe/Belgrade">Belgrade</option>'+
+       ' <option value="Europe/Berlin">Berlin</option>'+
+        '<option value="Europe/Bratislava">Bratislava</option>'+
+       ' <option value="Europe/Brussels">Brussels</option>'+
+        '<option value="Europe/Bucharest">Bucharest</option>'+
+        '<option value="Europe/Budapest">Budapest</option>'+
+        '<option value="Europe/Copenhagen">Copenhagen</option>'+
+        '<option value="Europe/Dublin">Dublin</option>'+
+        '<option value="Atlantic/Faroe">Faroe</option>'+
+        '<option value="Europe/Gibraltar">Gibraltar</option>'+
+        '<option value="Europe/Helsinki">Helsinki</option>'+
+        '<option value="Europe/Kiev">Kiev</option>'+
+        '<option value="Europe/London">London</option>'+
+        '<option value="Europe/Lisbon">Lisbon</option>'+
+        '<option value="Europe/Luxembourg">Luxembourg</option>'+
+        '<option value="Europe/Madrid">Madrid</option>'+
+        '<option value="Europe/Malta">Malta</option>'+
+        '<option value="Atlantic/Madeira">Madeira</option>'+
+        '<option value="Europe/Minsk">Minsk</option>'+
+        '<option value="Europe/Monaco">Monaco</option>'+
+        '<option value="Europe/Moscow">Moscow</option>'+
+        '<option value="Europe/Paris">Paris</option>'+
+        '<option value="Europe/Prague">Prague</option>'+
+        '<option value="Europe/Rome">Rome</option>'+
+        '<option value="Atlantic/Reykjavik">Reykjavik</option>'+
+        '<option value="Europe/Sarajevo">Sarajevo</option>'+
+        '<option value="Europe/Rome">Sofia</option>'+
+        '<option value="Europe/San_Marino">San Marino</option>'+
+        '<option value="Europe/Stockholm">Stockholm</option>'+
+        '<option value="Europe/Tallinn">Tallinn</option>'+
+        '<option value="Europe/Vaduz">Vaduz</option>'+
+        '<option value="Europe/Vatican">Vatican</option>'+
+        '<option value="Europe/Vienna">Vienna</option>'+
+        '<option value="Europe/Warsaw">Warsaw</option>'+
+        '<option value="Europe/Zagreb">Zagreb</option>'+
+        '<option value="Europe/Zurich">Zurich</option>'
+
+
+ var timezonesdropdown1 = document.getElementById("time-zones-drop-down-1")
+ var timezonesdropdown2 = document.getElementById("time-zones-drop-down-2")
+ var timezonesdropdown3 = document.getElementById("time-zones-drop-down-3")
+ timezonesdropdown1.innerHTML = htmlTimeZonesValues;
+ timezonesdropdown2.innerHTML = htmlTimeZonesValues;
+ timezonesdropdown3.innerHTML = htmlTimeZonesValues;
+}
+  
 // Updates Labels
 function updateLabels() {
   //updates HTML labels with the values store in Label Vars
@@ -370,5 +524,7 @@ function storedFontStyle() {
 getStorageData();
 updateLabels();
 updateTime();
+
+createHtmlTimeZoneOptions();
 
 setInterval(updateTime, 1000); // Updates time every second
